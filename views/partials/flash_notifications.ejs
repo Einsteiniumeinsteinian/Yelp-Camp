@@ -1,0 +1,12 @@
+<div id="flash_controller">
+<% if(flashNotification){ %>
+    <div class="container" id="flash-notification">
+        <div class="alert alert-<%= flashNotification.bootstrapClass %> alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>
+                <%= flashNotification.message %>
+            </strong>
+        </div>
+    </div>
+    <% } %>
+</div>

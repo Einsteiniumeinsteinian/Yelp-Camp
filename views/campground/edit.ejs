@@ -1,0 +1,83 @@
+<%- include('../partials/header') %>
+    <title>Edit <%= Campground.name %>
+    </title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/stylesheets/index.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="/stylesheets/campgrounds.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"
+        async></script>
+    </head>
+
+    <body>
+        <%- include('../partials/navbar') %>
+            <%- include('../partials/flash_notifications') %>
+                <div class="container">
+                    <h1 class="text-center" style="color: white; margin-top: 70px;">Edit <%= Campground.name %>
+                    </h1>
+
+                    <div class="row">
+                        <div style="width: 35%; margin: 25px auto;">
+                            <form action="/campgrounds/<%= Campground._id %>?_method=PUT " method="POST"
+                                class="was-validated">
+                                <div class="form-group">
+                                    <!-- Camp name Input-->
+                                    <label for="addcampname">Camp Name:</label>
+                                    <input type="text" name="campground[name]" class="form-control" id="addcampname"
+                                        autofocus value="<%= Campground.name %> " placeholder="name" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                                <!-- Image URL Input-->
+                                <div class="form-group">
+                                    <label for="addcampphoto">Camp Photo</label>
+                                    <input type="text" class="form-control" value="<%= Campground.image %>  name="
+                                        campground[image]" id="addcampphoto" placeholder="url" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <!-- Campground Price -->
+                                <div class="form-group">
+                                    <label for="camp-price">Price</label>
+                                    <input type="number" class="form-control" name="campground[price]" id="camp-price"
+                                        placeholder="Price" min="0.01" step="0.01" value="<%= Number(Campground.price) %>" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                                <!-- Campground Description -->
+                                <div class="form-group">
+                                    <label for="camp-description">Camp Description</label>
+                                    <textarea type="text" class="form-control" name="campground[description]"
+                                        id="camp-description" rows="5" placeholder="describe your camp"
+                                        required> <%= Campground.description %></textarea>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <input type="submit" class="btn btn-primary btn-block" value="Submit!">
+                            </form>
+
+                            <br>
+                            <a href="/" id="home"> Home</a>
+                            <a class="float-right" href="/campgrounds">View Campgrounds</a>
+                            
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <%- include('../partials/footer') %>
+    </body>
+
+    </html>

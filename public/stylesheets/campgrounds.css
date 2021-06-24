@@ -1,0 +1,111 @@
+/*? nav bar */
+nav a{
+    text-transform: capitalize;
+    color: white !important;
+}
+
+/*? Flash noticifications */
+#flash_controller{
+  margin-top: 5%;
+  display: block;
+     transition: background-color 0.3s ease-in-out;
+}
+
+a:link {
+    text-decoration: none;
+  }
+
+/* .row{
+ display: flex;
+ flex-wrap: wrap;what was 
+} */
+.top-container{
+        margin-top: 00px;
+}
+
+#home{
+    float: right;
+}
+label{
+    color: white;
+}
+
+
+.caption{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.active{
+    background-color: black;
+}
+/*? Cards  */
+.card{
+    width: 120%;
+  padding: 0%;
+  /* border-color: black; */
+}
+
+/* .card img{
+height:31rem;
+} */
+.showpage-delete-form{
+    display: inline;
+}
+
+.jumbotron{
+    background-color: #424242;
+    padding: 4rem 1rem;
+}
+
+
+/*? Index Capmground Page */
+.more-services img {
+  border-radius: 0;
+  height: 50%;
+}
+
+.more-services .card {
+  border: 0;
+  text-align: center;
+  margin-bottom: 10%;
+  height: 28rem;
+}
+
+.more-services .card-body {
+  -moz-text-align-last: center;
+  text-align-last: center;
+  color: #1bbca3;
+}
+
+.more-services .card-title a {
+  font-weight: 600;
+  font-size: 18px;
+  color: #334240;
+  transition: ease-in-out 0.3s;
+  text-transform: capitalize;
+}
+
+.more-services .card-title a:hover {
+  color: #1bbca3;
+}
+
+.more-services .btn {
+  border-radius: 50px;
+  padding: 4px 30px 6px 30px;
+  border: 2px solid #1bbca3;
+}
+
+.more-services .btn:hover {
+  color: #fff;
+  background: #1bbca3;
+}
+.more-services .fixed-to-bottom{
+margin-bottom: 10%;
+}
+/*? Footer */
+.footer {
+    /* margin-top: 10%; */
+  padding: 5rem 0;
+}
+
