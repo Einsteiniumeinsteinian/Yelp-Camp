@@ -1,0 +1,100 @@
+
+/*? Flash noticifications */
+#flash_controller{
+  margin-top: 5%;
+  display: block;
+     transition: background-color 0.3s ease-in-out;
+}
+
+#hidden-img{
+display: none;
+}
+.projects-section{
+    padding-bottom: 0%;
+    padding-top: 0%;
+}
+.row{
+    width: 99%;
+}
+
+.list-group-item{
+cursor: pointer;
+color: white;
+}
+
+/*? Text Inputs */
+h4{
+    text-transform: capitalize;
+    font-weight: bold;
+}
+#Price-tag{
+    font-size: 1.5rem;
+}
+
+@media (max-width: 760px ){
+    #TabMenus{
+    display: none;
+ }
+ .row{
+     margin: auto;
+ }
+#hidden-img{
+    display: block;
+    margin: 0%;
+    margin-bottom: 5%;
+    }
+    #laptop-size-image{
+        display: none;
+    }
+    body{
+        background-color: #343a40;
+    }
+    .col-9-container{
+        border-bottom: 2px solid rgb(5, 73, 2) ;
+    }
+    .card{
+        border: none;
+    }
+}
+
+
+@media (min-width: 1566px){
+ .col-9-container{
+    margin-left: 0%;
+} 
+#list-group-container{
+    width: 80%;
+}
+}
+
+
+/* p{
+    color: white;
+} */
+
+.col-xl-8 img{
+height:31rem;
+width: 100%;
+object-fit: fill;
+}
+
+.active{
+    background-color: black;
+}
+
+/*? Cards  */
+
+/* img{
+    filter: grayscale(100%);
+} */
+
+/*? Comment interaction button */
+.comment-interaction-btn{
+    cursor: pointer;
+text-decoration: none !important;
+    color: white !important;
+}
+
+.showpage-delete-form{
+    display: inline;
+}

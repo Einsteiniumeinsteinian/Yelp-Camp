@@ -1,0 +1,79 @@
+<%- include('../partials/header') %>
+<title>Edit Comment
+    </title><title>Edit Comment</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/stylesheets/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"
+        async></script>
+    </head>
+    <body>
+        <%- include('../partials/navbar') %>
+            <%- include('../partials/flash_notifications') %>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/stylesheets/index.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="/stylesheets/campgrounds.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"
+        async></script>
+    </head>
+
+    <body>
+        <%- include('../partials/navbar') %>
+            <%- include('../partials/flash_notifications') %>
+    <div class="container">
+        <h1 class="text-center" style="color: white; margin-top: 70px;">Edit Comment by <%= comment.author.username %> 
+        </h1>
+
+        <div class="row">
+            <div style="width: 35%; margin: 25px auto;">
+                <form 
+                action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT  " 
+                method="POST" 
+                class="was-validated">
+                    <!-- Image URL Input-->
+                    <div class="form-group">
+                        <label for="addComment">Comment</label>
+                        <!-- <input type="text" class="form-control" name="comment[content]" id="addcampphoto" placeholder="comment"
+                            required>  -->
+                        <textarea class="form-control"
+                        name="comment[content]" 
+                        maxlength="200" 
+                        id="addComment"
+                        required><%= comment.content %></textarea>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary btn-block" value="Submit!">
+                </form>
+
+                <br>
+                <a href="/campgrounds">View Campgrounds</a>
+                <a href="/" id="home">Home</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('../partials/footer') %>
+        </body>
+        
+        </html>

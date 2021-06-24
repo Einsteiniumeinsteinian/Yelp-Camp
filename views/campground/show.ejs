@@ -1,0 +1,210 @@
+<%- include('../partials/header') %>
+  <title>About <%= campground.name %> </title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="/stylesheets/index.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="/stylesheets/campgrounds.css"> -->
+  <link rel="stylesheet" href="/stylesheets/show_page.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"
+    async></script>
+  </head>
+  <body>
+    <%- include('../partials/navbar') %>
+      <%- include('../partials/flash_notifications') %>
+
+
+        <div id="hidden-img">
+          <div class="">
+            <img class="img-fluid" src="<%= campground.image%> " alt="Cannot Display Image" />
+          </div>
+
+        </div>
+
+
+        <section class="projects-section" id="projects">
+          <div class="row">
+            <div class="col-md-3 col-sm-12" id="TabMenus">
+              <div class="container" id="list-group-container">
+                <ul class="list-group" role="tablist">
+                  <li class="list-group-item active" onclick="location.href='#description-tab' ">
+                    Description
+                  </li>
+                  <li class="list-group-item bg-dark" onclick="location.href ='#comment-tab' ">
+                    Comments
+                  </li>
+                  <li class="list-group-item bg-dark" onclick="location.href ='#menu2' ">
+                    FAQ
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-9 col-sm-12">
+              <div class="container col-9-container" id="">
+                <!-- Featured Project Row-->
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5 bg-dark">
+                  <div class="col-xl-8 col-lg-7" id="laptop-size-image">
+                    <img class="img-fluid mb-3 mb-lg-0" src="<%= campground.image%> " alt="Cannot Display Image" />
+                  </div>
+                  <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left ">
+                      <h4>
+                        <%= campground.name %>
+                      </h4>
+                      <p class="text-white-100 mb-0">Grayscale is open source and MIT licensed. This means you can use
+                        it for any project - even commercial projects! Download it, customize it, and publish your
+                        website! Grayscale is open source and MIT licensed. This means you can use
+                        it for any project - even commercial projects! Download it, customize it, and publish your
+                        website! Grayscale is open source and MIT licensed. This means you can use
+                        it for any project - even commercial projects! Download it, customize it, and publish your
+                        website!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Tab panes -->
+              <!--? Description -->
+              <div class="container col-9-container">
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5 bg-dark">
+                  <div class="col-xl-12 col-lg-12">
+                    <div class="container">
+                      <div class="tab-content" id="description-tab">
+
+                        <div class="card bg-dark">
+                          <div class="card-body">
+                            <div class="card-title">
+                              <h4 class="card-title text-success float-md-right" id="Price-tag">$ <%= campground.price %> /night</h4>
+                              <a class="text-white" href="#">
+                                <!--* Card Title -->
+                                <h4 class="card-title">
+                                  <strong>
+                                    <%= campground.name %>
+                                  </strong>
+                                </h4>
+                              </a>
+                            </div>
+                            <!--* Card Description -->
+                            <p class="card-text">
+                              <%= campground.description %>
+                            </p>
+                            <p class="text-right">
+                              <em> Submitted By: <%= campground.author.username %> </em>
+
+                            </p>
+
+                            <!-- * Delete and Edit Buttons -->
+                            <% if(currentUser && currentUser.username===campground.author.username){ %>
+                              <a href="/campgrounds/<%= campground._id %>/edit " class="btn btn-success">Edit</a>
+                              <form class="showpage-delete-form" class="text-right"
+                                action="/campgrounds/<%= campground._id %>?_method=DELETE " method="POST">
+                                <button class="btn btn-danger mx-auto">
+                                  Delete
+                                </button>
+                              </form>
+                              <% } %>
+
+                                <!-- * View profile -->
+                                <div class="text-right">
+                                  <a id="p" href="#" class="btn btn-success">View Profile</a>
+                                </div>
+                          </div>
+                        </div>
+                        <div id="menu2" class="container tab-pane fade"><br>
+                          <h3>Menu 2</h3>
+                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium,
+                            totam rem
+                            aperiam.</p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--? comments Section -->
+              <div class="container col-9-container">
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5 bg-dark">
+                  <div class="col-xl-12 col-lg-12">
+                    <div class="container">
+                      <div class="tab-content" id="comment-tab">
+                        <div class="card bg-dark">
+                          <div class="card-body">
+                            <% campground.comments.forEach(function(comment){ %>
+                              <div class="container">
+                                <div class="media">
+                                  <div class="media-left">
+                                    <img
+                                      src="https://image.shutterstock.com/image-vector/user-icon-vector-illustration-logo-260nw-1647178156.jpg"
+                                      class="media-object" style="width:45px; margin-right: 10px;">
+                                  </div>
+                                  <div class="media-body">
+                                    <h4 class="media-heading">
+                                      <strong>
+                                        <%= comment.author.username %>
+                                      </strong>
+                                      <small class="float-sm-right"><em>Posted on February 19, 2016</em></small>
+                                    </h4>
+                                    <p>
+                                      <%= comment.content %>
+                                    </p>
+                                    <div class="text-right">
+                                      <!--? Is Currentuser and comment creator the same person?  -->
+                                      <% if(currentUser && currentUser._id.toString()===comment.author.id.toString()){%>
+                                        <a class="comment-interaction-btn "
+                                          onclick="location.href='/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit'">
+                                          <em>Edit. </em>
+                                        </a>
+                                        <form class="showpage-delete-form"
+                                          action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE"
+                                          method="POST">
+                                          <a class="comment-interaction-btn"
+                                            onclick="this.closest('form').submit();return false;"> <em> Delete</em></a>
+                                        </form>
+                                        <% } %>
+
+                                          <em class="comment-interaction-btn">Reply. </em>
+                                          <em class="comment-interaction-btn">like. </em>
+
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <br>
+                              <% }) %>
+                                <div class="card-title text-right">
+                                  <a class="btn btn-success"
+                                    href="/campgrounds/<%= campground._id %>/comments/new ">Leave a
+                                    Review</a>
+                                </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+
+
+        <%- include('../partials/footer') %>
+
+
+<!-- Bootstrap core JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+  </html>
