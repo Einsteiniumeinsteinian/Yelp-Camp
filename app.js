@@ -67,7 +67,7 @@ app.use('/campgrounds/:id/comments',commentRoutes)
 //     res.send('Page Not Found')
 // })
 
-app.listen(4000, function () {
+app.listen(process.env.PORT || 4000, function () {
     console.log('Yelp Camp Running at Port 4000')
 })
 
