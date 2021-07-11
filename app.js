@@ -7,7 +7,8 @@ const express             = require('express'),
     passportLocalMongoose = require('passport-local-mongoose'),
     expressSession        = require('express-session'),
     methodOverride        = require('method-override'),
-    flash                 = require('connect-flash')
+    flash                 = require('connect-flash'),
+    envFiles              = require('dotenv').config()
 
  const  User                  = require('./models/user'),
         Campground            = require('./models/campground'),
@@ -20,7 +21,11 @@ const express             = require('express'),
        indexRoutes           = require('./routes/index')
 
 // mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-mongoose.connect('mongodb+srv://einstein:iu6vsuDwy2DU2dq@cluster0.weqto.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(console.log('Connected to Mongo Atlas successfully'))
+console.log("Data base url is",process.env.DatabaseUrl)
+mongoose.connect(
+    process.env.DatabaseUrl,
+    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
+    ).then(console.log('Connected to Mongo Atlas successfully'))
 
 // iu6vsuDwy2DU2dq
 // mongo "mongodb+srv://cluster0.weqto.mongodb.net/myFirstDatabase" --username einstein
@@ -31,7 +36,7 @@ app.use(methodOverride('_method'))
 
 // ? PASSPORT CONFIG
 app.use(expressSession({
-    secret: 'Bongo Stray Dogs',
+    secret: 'ExpressSessionSecretPassword',
     resave: false,
     saveUninitialized: false
 }))
