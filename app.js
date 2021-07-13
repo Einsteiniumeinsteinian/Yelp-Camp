@@ -25,6 +25,7 @@ mongoose.connect(
     process.env.DatabaseUrl,
     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
     ).then(console.log('Connected to Mongo Atlas successfully'))
+
 app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/public'))
